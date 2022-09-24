@@ -1,0 +1,21 @@
+{
+  "name": "aeonlabs-installer",
+  "version": "1.0.0",
+  "description": "AeonLabs Setup Program",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^16.0.2"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.1",
+    "electron-acrylic-window": "^0.5.9",
+    "fs-extra": "^10.0.0",
+    "jquery": "^3.6.0",
+    "node-cmd": "^5.0.0",
+    "sweetalert2": "^11.3.0",
+    "systeminformation": "^5.9.16"
+  }
+}

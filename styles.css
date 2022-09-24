@@ -1,0 +1,242 @@
+/* styles.css */
+
+.is-hidden {
+    display: none !important;
+}
+
+body {
+    color: #fff;
+    font-family: 'Segoe UI';
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body.blur {
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+#titlebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    -webkit-app-region: drag;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+
+#titlebar > * {
+    -webkit-app-region: no-drag;
+}
+
+#title {
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#controls .controlbtn {
+    margin: 0;
+	width: 40px;
+	height: 100%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+}
+
+#controls .controlbtn:hover {
+    background: rgba(255,255,255,.1);
+}
+
+#controls .controlbtn.close:hover {
+	background: #e81123;
+}
+
+#controls .controlbtn svg {
+    width: 10px;
+    height: 10px;
+}
+
+#controls .controlbtn svg path, 
+#controls .controlbtn svg rect, 
+#controls .controlbtn svg polygon {
+	fill: #fff;
+}
+
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: calc(100% - 35px);
+    width: 100%;
+    margin-top: 35px;
+}
+
+#main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* padding: 20px; */
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    padding: 20px;
+    height: calc(100% - 40px);
+    display: none;
+}
+
+.content.selected {
+    display: block;
+    overflow-y: auto;
+}
+
+/* Buttons */
+.button {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #405cf5;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+    font-size: 100%;
+    height: 40px;
+    line-height: 1.15;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s,box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.button:hover {
+    background-color: #5973ff;
+}
+
+.button:disabled {
+    cursor: default;
+}
+
+.section {
+    border: 1px solid white;
+    position: relative;
+    padding: 25px 0;
+}
+
+.section > .sectionTitle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 1);
+    padding: 0 15px;
+    margin: 0;
+}
+
+.io-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 450px;
+}
+
+.io-box-container > label {
+    width: 100px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+/* Controls - Text Input */
+input[type="text"] {
+    padding: 14px 15px;
+    border-radius: 6px;
+    border: none;
+    background: rgb(73 73 73 / 40%);
+    margin: 10px;
+    color: white;
+}
+
+/* input[type="text"]:focus-visible {
+    border:none
+} */
+
+/* Controls - Radio */
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+input[type="radio"] + label {
+    display: block;
+    padding: 10px 0;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+input[type="radio"] + label:hover {
+    opacity: 1;
+}
+input[type="radio"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    vertical-align: -0.2em;
+    margin-right: 0.25em;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-clip: content-box;
+}
+input[type="radio"]:checked + label:before {
+    background-color: currentColor;
+    border-color: #0078d7;
+}
+
+/* Controls - Checkbox */
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+input[type="checkbox"] + label {
+    display: block;
+    padding: 10px 0;
+    opacity: 0.8;
+    transition: 0.1s;
+}
+input[type="checkbox"] + label:hover {
+    opacity: 1;
+}
+input[type="checkbox"] + label:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    content: "\f0c8";
+    display: inline-block;
+    font-size: 1.2em;
+    /* width: 1.2em;
+    height: 1.2em; */
+    margin-right: 0.4em;
+    vertical-align: -0.1em;
+    /* padding: 0.2em; */
+    box-sizing: border-box;
+    background-clip: content-box;
+}
+input[type="checkbox"]:checked + label:before {
+    font-weight: 900;
+    content: "\f14a";
+}

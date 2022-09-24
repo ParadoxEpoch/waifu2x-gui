@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <link href="./styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Waifu2x GUI</title>
+  </head>
+  <body>
+    
+    <div id="titlebar">
+        <div id="title">Waifu2x GUI</div>
+        <div id="controls">
+            <button class="controlbtn minimize" onclick="win.minimize()">
+                <svg x="0px" y="0px" viewBox="0 0 10.2 1"><rect x="0" y="50%" width="10.2" height="1" /></svg>
+            </button>
+            <button class="controlbtn maximize" onclick="win.isMaximized() ? win.unmaximize() : win.maximize()">
+                <svg viewBox="0 0 10 10"><path d="M0,0v10h10V0H0z M9,9H1V1h8V9z" /></svg>
+            </button>
+            <button class="controlbtn close" onclick="win.close()">
+                <svg viewBox="0 0 10 10"><polygon points="10.2,0.7 9.5,0 5.1,4.4 0.7,0 0,0.7 4.4,5.1 0,9.5 0.7,10.2 5.1,5.8 9.5,10.2 10.2,9.5 5.8,5.1" /></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <div id="main">
+
+            <div class="content selected">
+                <div style="text-align: center;margin-bottom:30px;">
+                    <h2 style="margin-bottom:0">Welcome to Waifu2x-GUI</h2>
+                    <div style="font-size: 1.2em;">Choose your options and press "Start" to process an image</div>
+                </div>
+
+                <div>
+
+                    <div style="margin-bottom: 50px; text-align: center;" class="section">
+                        <h3 class="sectionTitle">Input/Output Settings</h3>
+
+                        <div class="io-box-container">
+                            <label>Input Path</label>
+                            <input type="text" placeholder="Input Path" style="width:500px;">
+                            <button class="button">Browse</button>
+                        </div>
+    
+                        <div class="io-box-container">
+                            <label>Output Path</label>
+                            <input type="text" placeholder="Output Path" style="width:500px;">
+                            <button class="button">Browse</button>
+                        </div>
+            
+                    </div>
+
+                    <div style="display:flex;justify-content: space-around;">
+                    
+                        <div style="margin-bottom: 50px; text-align: center;" class="section">
+                            <h3 class="sectionTitle">Output File Extension</h3>
+
+                            <div class="io-box-container">
+                                <select>
+                                    <option value="hourly" selected="">Hourly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="once">One Time</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 50px; text-align: center;" class="section">
+                            <h3 class="sectionTitle">Output File Extension</h3>
+
+                            <div class="io-box-container">
+                                <label>Input Path</label>
+                                <button class="button">Browse</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+
+                    
+                    
+                    <!-- <div>
+                        <input type="checkbox">
+                        <label>Test Radio</label>    
+                    </div>
+                    <div>
+                        <input type="radio">
+                        <label>Test Radio</label>    
+                    </div> -->
+
+                </div>
+                
+            </div>
+
+            <div class="content" data-page="install">
+                <h2 style="margin-top: 5px">Setup <i class="fa fa-chevron-right" style="font-size: 0.7em; vertical-align: middle"></i> Install Apps</h2>
+                
+                <div class="options"></div>
+
+                <div style="height: 70px; width: 100%;"></div> <!-- Dummy padding for installSummary -->
+                <div id="installSummary">
+                    <div>
+                        <span>Ready to install some apps</span>
+                        <button class="button" onclick="startInstall()">Install Now</button>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="content" data-page="sysinfo">
+                <h2 style="margin-top: 5px">Setup <i class="fa fa-chevron-right" style="font-size: 0.7em; vertical-align: middle"></i> System Info</h2>
+                
+                <div id="sysInfoLoading" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+                    <h1>Please Wait</h1>
+                    <h2 id="sysInfoProgress" style="margin-bottom:0;margin-top:0">Loading System Information</h2>
+                </div>
+
+                <div id="sysInfoContent" class="is-hidden">
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-tachometer-alt fa-2x"></i>
+                            <span>
+                                <div class="title">Processor</div>
+                                <div class="subtitle" data-spec="cpu"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-microchip fa-2x"></i>
+                            <span>
+                                <div class="title">Motherboard</div>
+                                <div class="subtitle" data-spec="mobo"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-memory fa-2x"></i>
+                            <span>
+                                <div class="title">Memory</div>
+                                <div class="subtitle" data-spec="ram"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-gamepad fa-2x"></i>
+                            <span>
+                                <div class="title">Graphics</div>
+                                <div class="subtitle" data-spec="gpu"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-desktop fa-2x"></i>
+                            <span>
+                                <div class="title">Displays</div>
+                                <div class="subtitle" data-spec="display"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fa fa-hdd fa-2x"></i>
+                            <span>
+                                <div class="title">Disks</div>
+                                <div class="subtitle" data-spec="disk"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="option is-info">
+                        <div>
+                            <i class="fab fa-windows fa-2x"></i>
+                            <span>
+                                <div class="title">Windows</div>
+                                <div class="subtitle" data-spec="os"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="content" data-page="service">
+                <h2 style="margin-top: 5px">Setup <i class="fa fa-chevron-right" style="font-size: 0.7em; vertical-align: middle"></i> Service</h2>
+
+                <div class="option is-link">
+                    <i class="fa fa-box-open"></i> View My Order
+                    <sup>Beta</sup>
+                </div>
+
+                <div class="option is-link">
+                    <i class="fab fa-windows"></i> FAQ and Guides
+                </div>
+
+                <div class="option is-hidden">
+                    <i class="fab fa-docker"></i> Enable Docker
+                    <label class="switch" style="float:right">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="option is-subpage is-hidden">
+                    <i class="fa fa-tools"></i> Advanced Docker Settings
+                </div>
+
+            </div>
+
+            <div class="content" data-page="buy">
+                <h2 style="margin-top: 5px">Setup <i class="fa fa-chevron-right" style="font-size: 0.7em; vertical-align: middle"></i> Get Accessories</h2>
+                
+            </div>
+
+            <div class="content" data-page="reset">
+                <h2 style="margin-top: 5px">Setup <i class="fa fa-chevron-right" style="font-size: 0.7em; vertical-align: middle"></i> Reset PC</h2>
+                
+                <div class="option is-button" onclick="location.reload(true)">
+                    <i class="fa fa-redo"></i> Reload Setup
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Import Renderer Process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
