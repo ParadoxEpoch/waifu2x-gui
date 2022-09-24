@@ -29,11 +29,6 @@
         <div id="main">
 
             <div class="content selected">
-                <div style="text-align: center;margin-bottom:30px;">
-                    <h2 style="margin-bottom:0">Welcome to Waifu2x-GUI</h2>
-                    <div style="font-size: 1.2em;">Choose your options and press "Start" to process an image</div>
-                </div>
-
                 <div>
 
                     <div style="margin-bottom: 50px; text-align: center;" class="section">
@@ -41,55 +36,148 @@
 
                         <div class="io-box-container">
                             <label>Input Path</label>
-                            <input type="text" placeholder="Input Path" style="width:500px;">
+                            <input id="inputFile" type="text" placeholder="Input Path" style="width:500px;">
                             <button class="button">Browse</button>
                         </div>
     
                         <div class="io-box-container">
                             <label>Output Path</label>
-                            <input type="text" placeholder="Output Path" style="width:500px;">
+                            <input id="outputFile" type="text" placeholder="Output Path" style="width:500px;">
                             <button class="button">Browse</button>
                         </div>
             
                     </div>
 
-                    <div style="display:flex;justify-content: space-around;">
+                    <div style="display:flex;justify-content: space-between;">
                     
-                        <div style="margin-bottom: 50px; text-align: center;" class="section">
-                            <h3 class="sectionTitle">Output File Extension</h3>
+                        <div style="margin-bottom: 50px;text-align: center;display: flex;padding: 20px 50px;" class="section">
+                            <h3 class="sectionTitle">Denoise Level</h3>
 
-                            <div class="io-box-container">
-                                <select>
-                                    <option value="hourly" selected="">Hourly</option>
-                                    <option value="monthly">Monthly</option>
-                                    <option value="once">One Time</option>
-                                </select>
+                            <div style="margin: 10px">
+                                <input type="radio" name="denoise">
+                                <label>-1</label>
                             </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="denoise" checked>
+                                <label>0</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="denoise">
+                                <label>1</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="denoise">
+                                <label>2</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="denoise">
+                                <label>3</label>
+                            </div>
+
                         </div>
 
-                        <div style="margin-bottom: 50px; text-align: center;" class="section">
-                            <h3 class="sectionTitle">Output File Extension</h3>
+                        <div style="margin-bottom: 50px;text-align: center;display: flex;padding: 20px 50px;" class="section">
+                            <h3 class="sectionTitle">Upscale Ratio</h3>
 
-                            <div class="io-box-container">
-                                <label>Input Path</label>
-                                <button class="button">Browse</button>
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="1">
+                                <label>1</label>
                             </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="2" checked>
+                                <label>2</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="4">
+                                <label>4</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="8">
+                                <label>8</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="16">
+                                <label>16</label>
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="radio" name="upscale" value="32">
+                                <label>32</label>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    
+                    <div style="margin-bottom: 50px; text-align: center; display: flex; justify-content: center;" class="section">
+                        <h3 class="sectionTitle">Compute Settings</h3>
 
-                    
-                    
-                    <!-- <div>
-                        <input type="checkbox">
-                        <label>Test Radio</label>    
+                        <div>
+                            <div>AI Model</div>
+                            <select id="aiModel">
+                                <option value="models-cunet" selected="">cunet</option>
+                                <option value="models-upconv_7_anime_style_art_rgb">upconv_7_anime_style_art_rgb</option>
+                                <option value="models-upconv_7_photo">upconv_7_photo</option>
+                            </select>
+                        </div>
+            
+                        <div>
+                            <div>Compute Device (CPU/GPU)</div>
+                            <select id="gpuId">
+                                <option value="0" selected="">GPU 0</option>
+                                <option value="1">GPU 1</option>
+                                <option value="-1">CPU (Slow, Not Recommended)</option>
+                            </select>
+                        </div>
+
                     </div>
-                    <div>
-                        <input type="radio">
-                        <label>Test Radio</label>    
-                    </div> -->
+
+                    <div style="margin-bottom: 30px; text-align: center;" class="section">
+                        <h3 class="sectionTitle">Performance Settings</h3>
+    
+                        <div style="display: flex; justify-content: center;">
+                            <div>
+                                <div>Thread Count (Load)</div>
+                                <input id="qwer" type="text" placeholder="1">
+                            </div>
+
+                            <div>
+                                <div>Thread Count (Proc)</div>
+                                <input id="qwer" type="text" placeholder="2">
+                            </div>
+
+                            <div>
+                                <div>Thread Count (Save)</div>
+                                <input id="qwerty" type="text" placeholder="2">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <input id="ttaMode" type="checkbox" checked>
+                            <label>TTA Mode</label>    
+                        </div>
+            
+                    </div>
+
+                    <div style="text-align: center;">
+
+                        <div>
+                            <b>Command:</b> <span id="cmdPreview">waifu2x-ncnn-vulkan -i "path/to/input" -o "path/to/output" -n 0 -s 2 -m "models-cunet" -g 0 -j 1:2:2 -x -f jpg</span>
+                        </div>
+
+                        <div style="margin-top: 30px">
+                            <button class="button" onclick="parseParams()">Recalc Params (Debug)</button>
+                        </div>
+
+                    </div>
 
                 </div>
                 

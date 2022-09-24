@@ -142,7 +142,7 @@ body.blur {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 1);
+    background: rgb(20 20 20);
     padding: 0 15px;
     margin: 0;
 }
@@ -158,6 +158,16 @@ body.blur {
     width: 100px;
     text-align: right;
     margin-right: 5px;
+}
+
+/* Controls - Dropdown */
+select {
+    padding: 14px 15px;
+    border-radius: 6px;
+    border: none;
+    background: rgb(73 73 73 / 40%);
+    margin: 10px;
+    color: white;
 }
 
 /* Controls - Text Input */

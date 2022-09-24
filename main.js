@@ -9,8 +9,8 @@ let mainWindow;
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1250,
-    height: 800,
+    width: 1100,
+    height: 950,
     minWidth: 800,
     minHeight: 400,
     titleBarStyle: 'hidden', // Hide titleBar since we'll use our own custom controls
