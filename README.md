@@ -1,5 +1,5 @@
 # waifu2x-gui
- GUI for waifu2x-ncnn-Vulkan
+ GUI for [waifu2x-ncnn-Vulkan](https://github.com/nihui/waifu2x-ncnn-vulkan)
  
  ![UI Screenshot](https://i.imgur.com/EhB0Jda.png)
 
