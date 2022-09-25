@@ -1,5 +1,7 @@
 # waifu2x-gui
  GUI for waifu2x-ncnn-Vulkan
+ 
+ ![UI Screenshot](https://i.imgur.com/EhB0Jda.png)
 
 ## :checkered_flag:	Progress
 
